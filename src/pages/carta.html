@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+{{> head-comun}}
+<title>Carta de Gula, Dénia · Pizzas, burgers y bocadillos con precios</title>
+<meta name="description" content="Carta 2026 de Gula (Dénia) con precios: 19 pizzas y 6 hamburguesas con bebida de 33 cl incluida, 15 bocadillos de almuerzo, entrantes, ensaladas, pastas, platos combinados, menú infantil y desayunos.">
+<link rel="canonical" href="{{site}}carta.html">
+<meta property="og:title" content="La carta de Gula · Dénia">
+<meta property="og:description" content="Pizzas y hamburguesas con bebida incluida, 15 bocadillos de almuerzo y platos combinados. Precios 2026.">
+<meta property="og:url" content="{{site}}carta.html">
+{{ld-menu}}
+</head>
+<body class="p-carta">
+{{> header}}
+
+<main id="contenido">
+  <header class="carta-intro">
+    <h1 class="carta-intro__titulo">La carta</h1>
+    <p class="carta-intro__lead">Todo lo que sale de la cocina de Gula, con precios de 2026. De la tostada de las 6:00 al calzone de las once de la noche.</p>
+    <ul class="carta-intro__avisos">
+      <li><strong>Pizzas y hamburguesas</strong> con bebida de 33&nbsp;cl incluida.</li>
+      <li><strong>Menú del día</strong> a mediodía: llama al <a href="{{tel-href}}">{{tel}}</a> y te decimos qué hay hoy.</li>
+      <li><strong>¿Alergias o intolerancias?</strong> Pregúntanos por los alérgenos de cada plato antes de pedir.</li>
+    </ul>
+  </header>
+
+  <nav class="carta-nav" aria-label="Secciones de la carta">
+    <ul>{{carta-nav}}</ul>
+  </nav>
+
+  <div class="carta">
+{{carta}}
+    <section class="carta-seccion carta-seccion--postres" id="postres" aria-labelledby="t-postres">
+      <header class="carta-seccion__cabecera"><h2 class="titulo-brocha" id="t-postres"><span>Postres</span></h2></header>
+      <p class="carta-seccion__nota">Los postres son caseros y van cambiando: pregunta cuáles hay hoy.</p>
+    </section>
+  </div>
+
+  <aside class="carta-final">
+    <p>¿Para llevar? Encarga en el <a href="{{tel-href}}">{{tel}}</a> o pide en <a href="{{glovo}}" rel="noopener">Glovo</a> y <a href="{{justeat}}" rel="noopener">Just Eat</a>.</p>
+    <button type="button" class="boton boton--linea" data-imprimir hidden>Imprimir la carta</button>
+  </aside>
+</main>
+
+{{> footer}}
+</body>
+</html>

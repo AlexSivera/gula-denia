@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+<head>
+{{> head-comun}}
+<title>Gula · Bar, restaurante y pizzería en Dénia (desde las 6:00)</title>
+<meta name="description" content="Bar Restaurante Gula, en la Av. de Ramón Ortega 7 de Dénia, junto a la estación de autobuses. De 6:00 a 23:30: desayunos, almuerzo con 15 bocadillos, menú del día, pizzas y hamburguesas con bebida incluida. Miércoles cerrado.">
+<link rel="canonical" href="{{site}}">
+<meta property="og:title" content="Gula · Bar, restaurante y pizzería en Dénia">
+<meta property="og:description" content="Del café de las 6:00 a la última pizza de las 23:30. Av. de Ramón Ortega 7, junto a la estación de autobuses.">
+<meta property="og:url" content="{{site}}">
+{{ld-restaurante}}
+</head>
+<body class="p-inicio">
+{{> header}}
+
+<main id="contenido">
+
+  <!-- HERO · el reloj de Gula -->
+  <section class="hero" aria-labelledby="hero-titulo">
+    <div class="hero__texto">
+      <h1 id="hero-titulo" class="hero__titulo">
+        <span class="hero__gula">Gula</span>
+        <span class="hero__sub">Bar, restaurante y pizzería en Dénia</span>
+      </h1>
+      <p class="hero__lead">Del café de las 6:00 a la última pizza de las 23:30, en la avenida de Ramón Ortega, al lado de la estación de autobuses.</p>
+      <div class="hero__acciones">
+        <a class="boton boton--tinta boton--grande" href="{{tel-href}}">Llamar&nbsp;·&nbsp;{{tel}}</a>
+        <a class="boton boton--linea boton--grande" href="carta.html">Ver la carta</a>
+      </div>
+    </div>
+
+    <figure class="hero__foto" data-foto>
+      <img src="assets/img/noche-pizza-800.webp"
+           srcset="assets/img/noche-pizza-480.webp 480w, assets/img/noche-pizza-800.webp 800w, assets/img/noche-pizza-1200.webp 1200w"
+           sizes="(min-width: 960px) 44vw, 92vw" width="800" height="640"
+           alt="Pizza cortada en porciones con un refresco al lado" fetchpriority="high">
+    </figure>
+
+    <div class="ahora">
+      <p class="ahora__etiqueta"><span id="ahora-titulo">Ahora en Gula</span> <time class="ahora__reloj" data-reloj></time></p>
+      <p class="ahora__franja" data-franja-titulo>Desayunos, almuerzos, menú del día, pizzas y hamburguesas</p>
+      <p class="ahora__texto" data-franja-texto>Abrimos todos los días menos los miércoles, de 6:00 a 23:30.</p>
+      <a class="ahora__enlace" href="#el-dia" data-franja-enlace>Qué hay a cada hora →</a>
+    </div>
+
+    <div class="regla" data-regla aria-hidden="true">
+      <div class="regla__pista">
+        <span class="regla__tramo regla__tramo--manana" style="--desde:0;--hasta:6"><b><span class="largo">Café, tostada y almuerzo</span><span class="corto">Mañana</span></b></span>
+        <span class="regla__tramo regla__tramo--mediodia" style="--desde:6;--hasta:10"><b><span class="largo">Mediodía</span><span class="corto">Mediodía</span></b></span>
+        <span class="regla__tramo regla__tramo--noche" style="--desde:10;--hasta:17.5"><b><span class="largo">Pizzas, burgers y terraza</span><span class="corto">Tarde y noche</span></b></span>
+        <span class="regla__marca" data-regla-marca hidden></span>
+      </div>
+      <div class="regla__horas">
+        <span style="--h:0">6:00</span><span style="--h:3">9</span><span style="--h:6">12</span><span style="--h:9">15</span><span style="--h:12">18</span><span style="--h:15">21</span><span style="--h:17.5">23:30</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL DÍA EN GULA -->
+  <section class="dia" id="el-dia" aria-labelledby="dia-titulo">
+    <header class="seccion-cabecera">
+      <h2 class="titulo-brocha" id="dia-titulo"><span>Un día entero en Gula</span></h2>
+      <p class="seccion-cabecera__lead">A las 6:00 ya hay café. A las 23:30 todavía sale alguna pizza. Entre medias, esto:</p>
+    </header>
+
+    <ol class="dia__lista">
+      <li class="franja" data-franja="manana">
+        <div class="franja__hora">
+          <span class="franja__num">6:00</span>
+          <span class="franja__matiz">sáb. 7:00 · dom. 8:00</span>
+        </div>
+        <figure class="franja__foto franja__foto--alta">
+          <img src="assets/img/desayuno-480.webp" srcset="assets/img/desayuno-480.webp 480w, assets/img/desayuno-800.webp 800w" sizes="(min-width: 960px) 26vw, 60vw" width="480" height="720" loading="lazy" alt="Tostada con tomate y un café para llevar">
+        </figure>
+        <div class="franja__cuerpo">
+          <h3 class="franja__titulo">Café y tostada</h3>
+          <p>Tostadas de tomate, de jamón serrano, de salmón con aguacate; croissants, huevos revueltos y bol de yogur con granola y fruta. Para quien entra a trabajar temprano y para quien coge el primer autobús.</p>
+          <a class="enlace-flecha" href="carta.html#desayunos">Ver desayunos</a>
+        </div>
+      </li>
+
+      <li class="franja" data-franja="almuerzo">
+        <div class="franja__hora">
+          <span class="franja__num">Hasta las 12</span>
+          <span class="franja__matiz">de lunes a domingo, salvo miércoles</span>
+        </div>
+        <figure class="franja__foto">
+          <img src="assets/img/almuerzo-800.webp" srcset="assets/img/almuerzo-480.webp 480w, assets/img/almuerzo-800.webp 800w, assets/img/almuerzo-1200.webp 1200w" sizes="(min-width: 960px) 40vw, 92vw" width="800" height="533" loading="lazy" alt="Bocadillo de barra relleno, sobre la mesa">
+        </figure>
+        <div class="franja__cuerpo">
+          <h3 class="franja__titulo">Almuerzo</h3>
+          <p>El de toda la vida: bocadillo, bebida y café. Medio o entero, de tres ingredientes, o uno de los quince de la casa, que tienen nombre propio.</p>
+          <ul class="mini-carta">
+            <li><span>Chivito de lomo o pollo</span><span class="mini-carta__precio">{{precio:bocadillos/Chivito}}</span></li>
+            <li><span>Republicano</span><span class="mini-carta__precio">{{precio:bocadillos/Republicano}}</span></li>
+            <li><span>Almusafes</span><span class="mini-carta__precio">{{precio:bocadillos/Almusafes}}</span></li>
+          </ul>
+          <a class="enlace-flecha" href="#almuerzo">Ver la pizarra de bocadillos</a>
+        </div>
+      </li>
+
+      <li class="franja" data-franja="mediodia">
+        <div class="franja__hora">
+          <span class="franja__num">Mediodía</span>
+          <span class="franja__matiz">menú del día</span>
+        </div>
+        <figure class="franja__foto">
+          <img src="assets/img/mediodia-800.webp" srcset="assets/img/mediodia-480.webp 480w, assets/img/mediodia-800.webp 800w, assets/img/mediodia-1200.webp 1200w" sizes="(min-width: 960px) 40vw, 92vw" width="800" height="533" loading="lazy" alt="Ración de calamares fritos en la barra, con una caña detrás">
+        </figure>
+        <div class="franja__cuerpo">
+          <h3 class="franja__titulo">Menú del día</h3>
+          <p>Cambia cada día y es de lo que más nos comentáis en Google. ¿Quieres saber qué hay hoy? Llámanos y te lo cantamos.</p>
+          <p>Y si prefieres carta: ensaladas, pastas, el pollo al curry casero con basmati ({{precio:combinados/Pollo al curry}}) o el entrecot de 350/400&nbsp;g ({{precio:combinados/Entrecot}}).</p>
+          <a class="enlace-flecha" href="{{tel-href}}">Preguntar el menú de hoy</a>
+        </div>
+      </li>
+
+      <li class="franja" data-franja="noche">
+        <div class="franja__hora">
+          <span class="franja__num">Hasta 23:30</span>
+          <span class="franja__matiz">martes, hasta las 23:00</span>
+        </div>
+        <figure class="franja__foto">
+          <img src="assets/img/noche-burger-800.webp" srcset="assets/img/noche-burger-480.webp 480w, assets/img/noche-burger-800.webp 800w, assets/img/noche-burger-1200.webp 1200w" sizes="(min-width: 960px) 40vw, 92vw" width="800" height="533" loading="lazy" alt="Hamburguesa con queso fundido y patatas fritas">
+        </figure>
+        <div class="franja__cuerpo">
+          <h3 class="franja__titulo">Pizzas, burgers y terraza</h3>
+          <p>Diecinueve pizzas de 33&nbsp;cm y seis hamburguesas de 180&nbsp;g, todas con bebida de 33&nbsp;cl incluida (las burgers, además, con patatas). En la terraza, para llevar o a domicilio.</p>
+          <ul class="mini-carta">
+            <li><span>Pizza Gula</span><span class="mini-carta__precio">{{precio:pizzas/Gula}}</span></li>
+            <li><span>Calzone Gula</span><span class="mini-carta__precio">{{precio:pizzas/Calzone Gula}}</span></li>
+            <li><span>Hamburguesa Ibérica</span><span class="mini-carta__precio">{{precio:hamburguesas/Ibérica}}</span></li>
+          </ul>
+          <a class="enlace-flecha" href="carta.html#pizzas">Ver pizzas y hamburguesas</a>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- PIZARRA DEL ALMUERZO -->
+  <section class="pizarra" id="almuerzo" aria-labelledby="pizarra-titulo">
+    <div class="pizarra__marco">
+      <header class="pizarra__cabecera">
+        <h2 class="pizarra__titulo" id="pizarra-titulo">La pizarra del almuerzo</h2>
+        <p>Quince bocadillos con nombre y apellidos. Toca uno para ver qué lleva.</p>
+      </header>
+      <ul class="pizarra__nombres">{{pizarra}}</ul>
+      <div class="pizarra__detalle" data-pizarra-detalle aria-live="polite">
+        <p class="pizarra__vacio">¿Republicano, Cofrade o Salvavidas? Toca un nombre de la pizarra.</p>
+      </div>
+      <p class="pizarra__pie">Los de calamar, sepia y escombros, con mayonesa o picaeta. <a href="carta.html#bocadillos">Ver todos en la carta</a></p>
+    </div>
+  </section>
+
+  <!-- BEBIDA INCLUIDA -->
+  <section class="incluida" aria-labelledby="incluida-titulo">
+    <p class="sello sello--grande" aria-hidden="true"><span>Bebida<br>33 cl<br>incluida</span></p>
+    <div class="incluida__texto">
+      <h2 id="incluida-titulo">Pizza o hamburguesa: la bebida va por nuestra cuenta.</h2>
+      <p>Todas las pizzas y hamburguesas de la carta llevan una bebida de 33&nbsp;cl gratis. Las hamburguesas, además, con patatas.</p>
+    </div>
+    <div class="incluida__ejemplos">
+      <p class="incluida__por">Por ejemplo</p>
+      <ul class="mini-carta">
+        <li><span>Pizza Margarita + bebida</span><span class="mini-carta__precio">{{precio:pizzas/Margarita}}</span></li>
+        <li><span>Pizza Cheesey + bebida</span><span class="mini-carta__precio">{{precio:pizzas/Cheesey}}</span></li>
+        <li><span>Burger Classic + patatas + bebida</span><span class="mini-carta__precio">{{precio:hamburguesas/Classic}}</span></li>
+        <li><span>Burger Ibérica + patatas + bebida</span><span class="mini-carta__precio">{{precio:hamburguesas/Ibérica}}</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PEDIR -->
+  <section class="pedir" id="pedir" aria-labelledby="pedir-titulo">
+    <header class="seccion-cabecera">
+      <h2 class="titulo-brocha" id="pedir-titulo"><span>¿Te lo llevas?</span></h2>
+    </header>
+    <div class="pedir__opciones">
+      <div class="pedir__principal">
+        <h3>Llama, encarga y pasa a recoger</h3>
+        <a class="pedir__tel" href="{{tel-href}}">{{tel}}</a>
+        <p>Encarga por teléfono, dinos a qué hora pasas y te lo llevas en la mano. Práctico si vas a coger el autobús.</p>
+      </div>
+      <div class="pedir__apps">
+        <h3>A domicilio</h3>
+        <p>Con Glovo o Just Eat, sin moverte de casa:</p>
+        <ul>
+          <li><a class="boton boton--linea" href="{{glovo}}" rel="noopener">Pedir en Glovo</a></li>
+          <li><a class="boton boton--linea" href="{{justeat}}" rel="noopener">Pedir en Just Eat</a></li>
+        </ul>
+        <p class="nota">En las apps, precios y condiciones los fija cada plataforma y pueden no coincidir con la carta del local.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPINIONES -->
+  <section class="opiniones" aria-labelledby="opiniones-titulo">
+    <header class="seccion-cabecera">
+      <h2 class="titulo-brocha" id="opiniones-titulo"><span>De qué habla la gente</span></h2>
+    </header>
+    <div class="opiniones__grid">
+      <div class="nota-google">
+        <p class="nota-google__cifra">4,5</p>
+        <p class="nota-google__texto">sobre 5 en Google<br><strong>259 reseñas</strong></p>
+      </div>
+      <figure class="temas">
+        <figcaption>Lo que más se menciona en las reseñas de Google</figcaption>
+        <ol class="temas__lista">
+          <li style="--n:26"><span class="temas__nombre">Pizzas</span><span class="temas__barra" aria-hidden="true"></span><span class="temas__num">26</span></li>
+          <li style="--n:20"><span class="temas__nombre">Bocadillos</span><span class="temas__barra" aria-hidden="true"></span><span class="temas__num">20</span></li>
+          <li style="--n:8"><span class="temas__nombre">Menú del día</span><span class="temas__barra" aria-hidden="true"></span><span class="temas__num">8</span></li>
+          <li style="--n:7"><span class="temas__nombre">Ensalada</span><span class="temas__barra" aria-hidden="true"></span><span class="temas__num">7</span></li>
+          <li style="--n:5"><span class="temas__nombre">Postres</span><span class="temas__barra" aria-hidden="true"></span><span class="temas__num">5</span></li>
+        </ol>
+      </figure>
+      <div class="citas">
+        <blockquote>
+          <p>«Bocatas riquísimos, buenos precios y almuerzo completísimo.»</p>
+          <footer>G. del V. · reseña en Google</footer>
+        </blockquote>
+        <blockquote>
+          <p>«Menú excelente, relación calidad precio inmejorable, ambiente familiar.»</p>
+          <footer>Manuel G. · reseña en Google</footer>
+        </blockquote>
+        <blockquote>
+          <p>«De pasada al puerto paramos a almorzar.»</p>
+          <footer>Reseña en Google</footer>
+        </blockquote>
+        <a class="enlace-flecha" href="{{resenas}}" rel="noopener">Leer todas las reseñas en Google</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DÓNDE -->
+  <section class="donde" id="donde" aria-labelledby="donde-titulo">
+    <div class="donde__texto">
+      <h2 class="titulo-brocha" id="donde-titulo"><span>Av. de Ramón Ortega,&nbsp;7</span></h2>
+      <p class="donde__lead">A la entrada de Dénia, al lado de la estación de autobuses, los juzgados y el parque de Torrecremada. Si vienes en autobús o vas camino del puerto, te pilla de paso.</p>
+      <p>Terraza en la calle y mesas dentro.</p>
+      <div class="donde__acciones">
+        <a class="boton boton--tinta" href="{{maps-dir}}" rel="noopener">Cómo llegar</a>
+        <a class="boton boton--linea" href="{{tel-href}}">Llamar&nbsp;·&nbsp;{{tel}}</a>
+      </div>
+      <h3 class="donde__subtitulo">Horario</h3>
+      <dl class="horario" data-horario>{{horario}}</dl>
+      <p class="nota">En festivos el horario puede cambiar: si vienes de lejos, llama antes.</p>
+    </div>
+    <div class="mapa" data-mapa data-src="{{maps-embed}}">
+      <div class="mapa__aviso">
+        <p class="mapa__titulo">Mapa</p>
+        <p>El mapa es de Google. Solo se carga si lo pides (y entonces Google puede usar cookies).</p>
+        <button type="button" class="boton boton--papel" data-mapa-cargar>Cargar mapa</button>
+        <a href="{{maps}}" rel="noopener">o abrir en Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+{{> footer}}
+</body>
+</html>

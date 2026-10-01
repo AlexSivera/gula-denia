@@ -1,0 +1,24 @@
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="cabecera">
+  <a class="cabecera__marca" href="./" aria-label="Gula, inicio">
+    <span class="cabecera__gula">Gula</span>
+    <span class="cabecera__tipo">Bar · Restaurante · Pizzería</span>
+  </a>
+  <p class="estado" data-estado hidden>
+    <span class="estado__punto" aria-hidden="true"></span>
+    <span data-estado-texto></span>
+  </p>
+  <nav class="cabecera__nav" aria-label="Principal">
+    <ul>
+      <li><a href="./#el-dia">El día</a></li>
+      <li><a href="./#almuerzo">Almuerzo</a></li>
+      <li><a href="carta.html"{{actual:carta}}>Carta</a></li>
+      <li><a href="./#donde">Dónde</a></li>
+    </ul>
+  </nav>
+  <a class="boton boton--tinta cabecera__tel" href="{{tel-href}}">
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+    <span>{{tel}}</span>
+  </a>
+</header>
+<script type="application/json" id="datos-horario">{{horario-json}}</script>

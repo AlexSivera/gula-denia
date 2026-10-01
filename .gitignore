@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.playwright-mcp/
+.claude/
+# Documentación interna de agencia (brief, competencia, QA): no se publica
+docs/

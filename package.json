@@ -1,0 +1,16 @@
+{
+  "name": "gula-denia-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web de Bar Restaurante GULA (Dénia). HTML/CSS/JS estático generado desde src/.",
+  "type": "module",
+  "scripts": {
+    "shapes": "node scripts/shapes.mjs",
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "validate": "npx --yes html-validate@8 \"dist/*.html\"",
+    "check": "node scripts/build.mjs && npx --yes html-validate@8 \"dist/*.html\"",
+    "deploy": "node scripts/deploy.mjs"
+  }
+}

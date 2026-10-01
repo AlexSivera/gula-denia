@@ -1,0 +1,26 @@
+{
+  "_fuente": "Google Maps (ficha Bar Restaurante GULA), consultado el 1/10/2026",
+  "nombre": "Bar Restaurante GULA",
+  "telefono": { "visible": "865 83 35 27", "e164": "+34865833527" },
+  "direccion": { "calle": "Av. de Ramón Ortega, 7", "localidad": "Dénia", "cp": "03700", "provincia": "Alicante" },
+  "geo": { "lat": 38.8372913, "lng": 0.1012935 },
+  "horario": {
+    "lunes": ["06:00", "23:30"],
+    "martes": ["06:00", "23:00"],
+    "miercoles": null,
+    "jueves": ["06:00", "23:30"],
+    "viernes": ["06:00", "23:30"],
+    "sabado": ["07:00", "23:30"],
+    "domingo": ["08:00", "23:30"]
+  },
+  "enlaces": {
+    "maps": "https://www.google.com/maps/place/Bar+Restaurante+GULA/@38.8372913,0.1012935,17z/data=!4m6!3m5!1s0x129e1b565f39a36d:0x608c9ddb3ba6253b!8m2!3d38.8372913!4d0.1012935!16s%2Fg%2F11rt_6y_y7",
+    "comoLlegar": "https://www.google.com/maps/dir/?api=1&amp;destination=Bar+Restaurante+GULA%2C+Av.+de+Ram%C3%B3n+Ortega+7%2C+03700+D%C3%A9nia",
+    "embed": "https://www.google.com/maps?q=Bar+Restaurante+GULA,+Av.+de+Ram%C3%B3n+Ortega+7,+03700+D%C3%A9nia&amp;z=17&amp;output=embed",
+    "resenas": "https://www.google.com/maps/place/Bar+Restaurante+GULA/@38.8372913,0.1012935,17z/data=!4m8!3m7!1s0x129e1b565f39a36d:0x608c9ddb3ba6253b!8m2!3d38.8372913!4d0.1012935!9m1!1b1!16s%2Fg%2F11rt_6y_y7",
+    "instagram": "https://www.instagram.com/restaurante.gula/",
+    "facebook": "https://www.facebook.com/p/bar-restaurante-GULA-100089763706091/",
+    "glovo": "https://glovoapp.com/es/es/denia/stores/risotto-pizzeria-denia",
+    "justEat": "https://www.just-eat.es/restaurants-gula-restaurante-denia-03700/menu"
+  }
+}
