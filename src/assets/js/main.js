@@ -206,6 +206,83 @@
     titulos.forEach((t) => io.observe(t));
   } else titulos.forEach((t) => t.classList.add('pintado'));
 
+  // ---------- Fotos de las franjas: se destapan al entrar ----------
+  const fotos = $$('.franja__foto');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const io = new IntersectionObserver((entradas) => entradas.forEach((en) => {
+      if (en.isIntersecting) { en.target.classList.add('visto'); io.unobserve(en.target); }
+    }), { rootMargin: '0px 0px -18% 0px' });
+    fotos.forEach((f) => io.observe(f));
+  } else fotos.forEach((f) => f.classList.add('visto'));
+
+  // ---------- El scroll es el día: de las 6:00 a las 23:30 ----------
+  // Una línea se rellena por la línea del tiempo y un reloj la acompaña,
+  // interpolando la hora entre las franjas. Solo transform: no fuerza layout al hacer scroll.
+  const lista = $('.dia__lista');
+  if (lista && !reduceMotion) {
+    const franjas = $$('.franja', lista);
+    // Hora al llegar a cada franja. El atardecer (16:00 → 20:00) corre en el hueco
+    // entre el menú del día y la noche, donde el fondo pasa a petróleo.
+    const HORAS = { manana: 360, almuerzo: 540, mediodia: 720, noche: 1200 };
+    const FIN_MEDIODIA = 960; // 16:00
+    const CIERRE = 1410; // 23:30
+    const nueva = (cls) => { const el = document.createElement('span'); el.className = cls; el.setAttribute('aria-hidden', 'true'); return el; };
+    const linea = nueva('dia__linea'), relojDia = nueva('dia__reloj');
+    lista.append(linea, relojDia);
+    lista.classList.add('dia__lista--viva');
+
+    let paradas = [], nudos = [], ini = 0, fin = 0, origen = 0, texto = '', pendiente = false;
+
+    const pintar = () => {
+      pendiente = false;
+      if (!paradas.length) return;
+      const punta = Math.min(Math.max(scrollY + innerHeight * 0.6 - origen, ini), fin);
+      linea.style.transform = `scaleY(${(punta - ini) / (fin - ini || 1)})`;
+      relojDia.style.transform = `translateY(${punta}px) translate(-50%, -50%) rotate(-90deg)`;
+
+      let t = CIERRE;
+      for (let i = 0; i < paradas.length - 1; i++) {
+        const a = paradas[i], b = paradas[i + 1];
+        if (punta <= b.y) { t = a.t + (b.t - a.t) * ((punta - a.y) / (b.y - a.y || 1)); break; }
+      }
+      const m = Math.round(t / 5) * 5;
+      const nuevo = `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`;
+      if (nuevo !== texto) relojDia.textContent = texto = nuevo;
+
+      franjas.forEach((li, i) => li.classList.toggle('franja--pasada', punta >= nudos[i] - 1));
+      relojDia.classList.toggle('dia__reloj--noche', punta >= nudos.at(-1));
+    };
+    const pedir = () => { if (!pendiente) { pendiente = true; requestAnimationFrame(pintar); } };
+
+    const medir = () => {
+      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const nudo = 1.025 * rem; // centro del nudo de cada franja (top .55rem + mitad de .95rem)
+      origen = lista.getBoundingClientRect().top + scrollY;
+      nudos = franjas.map((li) => li.offsetTop + nudo);
+      paradas = franjas.flatMap((li, i) => {
+        const p = [{ y: nudos[i], t: HORAS[li.dataset.franja] ?? CIERRE }];
+        if (li.dataset.franja === 'mediodia') {
+          const finContenido = li.offsetTop + li.offsetHeight - parseFloat(getComputedStyle(li).paddingBottom);
+          p.push({ y: finContenido, t: FIN_MEDIODIA });
+        }
+        return p;
+      });
+      const ultima = franjas.at(-1);
+      paradas.push({ y: ultima.offsetTop + ultima.offsetHeight - 1.5 * rem, t: CIERRE });
+      ini = paradas[0].y; fin = paradas.at(-1).y;
+      linea.style.top = ini + 'px';
+      linea.style.height = fin - ini + 'px';
+      pintar();
+    };
+
+    addEventListener('scroll', pedir, { passive: true });
+    // Lo de arriba (fuentes, foto del hero) puede mover la lista: se vuelve a medir.
+    if ('ResizeObserver' in window) new ResizeObserver(() => requestAnimationFrame(medir)).observe(document.body);
+    else addEventListener('resize', medir);
+    addEventListener('load', medir);
+    medir();
+  }
+
   // ---------- Carta: sección activa en la barra de categorías ----------
   const nav = $('.carta-nav');
   if (nav && 'IntersectionObserver' in window) {
