@@ -286,6 +286,47 @@ address { font-style: normal; }
 .franja__cuerpo p + p { margin-top: .7rem; }
 .franja__cuerpo { max-width: 34rem; }
 
+/* La noche: la última franja se pinta de petróleo, con un atardecer turquesa
+   en el hueco anterior, y se funde con la pizarra del almuerzo. */
+.dia { overflow-x: clip; }
+.franja[data-franja="noche"] { --hueco: 3.5rem; color: var(--paper-light); border-left-color: var(--teal-on-dark); }
+.franja[data-franja="noche"]::after {
+  content: ''; position: absolute; z-index: -1;
+  top: calc(var(--hueco) * -1); bottom: -4rem; left: -100vw; right: -100vw;
+  background: linear-gradient(to bottom,
+    rgb(169 216 217 / 0),
+    rgb(169 216 217 / .6) calc(var(--hueco) * .35),
+    var(--teal) calc(var(--hueco) * .75),
+    var(--petrol) var(--hueco));
+}
+.franja[data-franja="noche"]::before { background: var(--petrol); border-color: var(--teal-on-dark); }
+.franja[data-franja="noche"] .franja__matiz { color: var(--teal-wash); }
+.franja[data-franja="noche"] .mini-carta__precio { color: var(--teal-on-dark); }
+.franja[data-franja="noche"] .mini-carta li span:first-child::after { color: var(--teal-wash); }
+.franja[data-franja="noche"] .enlace-flecha { border-color: var(--teal-on-dark); }
+.franja[data-franja="noche"] a:hover { color: var(--teal-wash); }
+.franja[data-franja="noche"] :focus-visible { outline-color: var(--paper-light); }
+.franja[data-franja="noche"][data-actual] .franja__num { background-image: url('../img/brush-teal.svg'); }
+.franja[data-franja="noche"] .franja__ahora { background: var(--paper-light); color: var(--ink); }
+
+/* El scroll es el día: línea que se rellena y reloj que corre de 6:00 a 23:30 (JS) */
+.dia__lista { position: relative; }
+.franja::before { z-index: 1; }
+.dia__linea {
+  position: absolute; left: var(--gutter); width: 3px; z-index: 0; pointer-events: none;
+  background: var(--teal-bright); transform-origin: top; transform: scaleY(0);
+}
+.dia__reloj {
+  position: absolute; top: 0; left: calc(var(--gutter) + 1.5px); z-index: 2; pointer-events: none;
+  background: var(--ink); color: var(--paper-light);
+  font: 800 .95rem/1 var(--f-cond); letter-spacing: .06em; font-variant-numeric: tabular-nums;
+  padding: .32rem .55rem; white-space: nowrap; will-change: transform;
+  transition: background-color .3s, color .3s;
+}
+.dia__reloj--noche { background: var(--teal-wash); color: var(--ink); }
+.dia__lista--viva .franja::before { transition: background-color .25s, transform .25s cubic-bezier(.2,.9,.3,1.4); }
+.dia__lista--viva .franja--pasada::before { background: var(--teal-bright); transform: scale(1.2); }
+
 .mini-carta { margin-top: 1.1rem; max-width: 26rem; }
 .mini-carta li { display: flex; align-items: baseline; font: 700 1.15rem var(--f-cond); text-transform: uppercase; letter-spacing: .02em; padding: .2rem 0; }
 .mini-carta li span:first-child { flex: 1; display: flex; align-items: baseline; }
@@ -538,6 +579,7 @@ address { font-style: normal; }
   .franja:nth-child(odd) .franja__foto { transform: rotate(-1.2deg); }
   .franja:nth-child(even) .franja__foto { transform: rotate(1deg); }
   .franja__foto--alta { max-width: 21rem; }
+  .franja[data-franja="noche"] { --hueco: 5rem; }
 
   .incluida { grid-template-columns: auto minmax(0, 1fr) minmax(0, 25rem); }
   .incluida__ejemplos { grid-column: auto; }
@@ -548,6 +590,22 @@ address { font-style: normal; }
   .pie { grid-template-columns: 1.4fr 1fr 1fr 1fr; padding-inline: max(var(--gutter), calc((100% - var(--max)) / 2)); }
   .pie__base { grid-column: 1 / -1; }
 }
+
+/* ---------- Movimiento (solo si el sistema no pide reducirlo) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Portada: "GULA" cae como un sello y después gotea */
+  .hero__gula { transform-origin: 20% 80%; animation: sello .75s cubic-bezier(.2,.9,.3,1.25) both; }
+  .hero__gula::after { animation: goteo 1.5s .55s cubic-bezier(.6,0,.8,.45) both; }
+
+  /* Fotos de las franjas: se destapan al entrar en pantalla (JS añade .visto) */
+  .js .franja__foto img {
+    transition: clip-path 1s cubic-bezier(.7,0,.2,1), transform 1.5s cubic-bezier(.2,.7,.2,1);
+  }
+  .js .franja__foto:not(.visto) img { clip-path: inset(0 100% 0 0); transform: scale(1.12); }
+  .js .franja:nth-child(even) .franja__foto:not(.visto) img { clip-path: inset(0 0 0 100%); }
+}
+@keyframes sello { from { transform: scale(1.22) rotate(-5deg); opacity: .15; } }
+@keyframes goteo { from { clip-path: inset(0 0 100% 0); } }
 
 /* ---------- Movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce) {
