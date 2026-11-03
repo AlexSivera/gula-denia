@@ -61,7 +61,7 @@
     },
     mediodia: {
       titulo: 'Menú del día',
-      texto: () => 'Cambia cada día. Llámanos al 865 83 35 27 y te decimos qué hay hoy.',
+      texto: () => 'Cambia cada día: llámanos al 865 83 35 27 y te decimos qué hay hoy. Y si no, carta, con pizzas y burgers.',
       enlace: ['Llamar →', 'tel:+34865833527'],
       foto: FOTO('mediodia', 'Ración de calamares fritos en la barra, con una caña detrás')
     },
